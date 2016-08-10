@@ -1,0 +1,36 @@
+/* -------  module team  -------  */
+/* ----------  Group  ----------  */
+.team-head {text-align: left;}
+.team-head h2 {font-size: 1.2em; }
+.team-head p {font-size: 1.0em; }
+
+/* ----------  Member ----------  */
+.team-member {margin-bottom:20px;}
+.team-member td {
+	font-size: 1.0em;
+	text-align: left;
+}
+
+.team-member ul {
+	margin: 0 0 6px 0 ! important;
+	padding: 0 0 0 0 ! important;
+	list-style-type: none;
+}
+
+
+.team-member ul li {
+	list-style-type: none;
+	padding: 0 0 6px 26px;
+	margin: 0 0 0 0;
+	background-repeat: no-repeat;
+	background-position: 0px 3px;
+
+}
+.team-name {font-size: 1.1em; margin:0;}
+.team-capa {font-size: 1.0em; margin:4px 0; color: #666666;}
+.team-desc { font-size: 0.9em;	margin:6px 0;}
+
+.team-mail {font-size: 1.0em; 	background-image: url(mail.gif);}	
+.team-phone { font-size: 1.0em; background-image: url(phone.gif); }
+.team-extra1 {font-size: 0.8em; background-image: url(talk.gif); }
+.team-extra2 {font-size: 0.8em; background-image: url(time.gif); }

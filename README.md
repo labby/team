@@ -1,7 +1,5 @@
 # Team
-listing team members
 
-# Team
 ## Description
 Team is a module for LEPTON CMS (2.x). 
 You can list members of a team or similar.

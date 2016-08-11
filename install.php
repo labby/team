@@ -39,7 +39,7 @@ if(defined('WB_URL')) {
 					 . '`phone` VARCHAR(255) NOT NULL DEFAULT \'\','
 					 . '`m_extra1` TEXT NOT NULL,'
  					 . '`m_extra2` TEXT NOT NULL,'					 
-					 . '`m_searchstring` TEXT NOT NULL DEFAULT \'\','
+					 . '`m_searchstring` TEXT NOT NULL,'
 					 . '`picture` VARCHAR(255) NOT NULL DEFAULT \'\','
 					 . 'PRIMARY KEY (team_id)'
                 . ' )';
@@ -53,7 +53,7 @@ if(defined('WB_URL')) {
 					 . '`position` INT NOT NULL DEFAULT \'0\','
 					 . '`active` INT NOT NULL DEFAULT \'0\','
 					 . '`group_name` VARCHAR(255) NOT NULL DEFAULT \'\','
-					 . '`group_desc` TEXT NOT NULL DEFAULT \'\','
+					 . '`group_desc` TEXT NOT NULL,'
 					 . '`sort_by_name` TINYINT(1) NOT NULL DEFAULT \'0\','
 					 . 'PRIMARY KEY (group_id)'
                 . ' )';
@@ -109,18 +109,9 @@ if(defined('WB_URL')) {
 
 	$database->query("INSERT INTO ".TABLE_PREFIX."search (name,value,extra) VALUES ('query_end', '$query_end_code', 'team')");
 	
-	// Insert blank rows (there needs to be at least on row for the search to work)
-	$database->query("INSERT INTO ".TABLE_PREFIX."mod_team_members (section_id,page_id) VALUES ('0', '0')");
-	$database->query("INSERT INTO ".TABLE_PREFIX."mod_team_groups (section_id,page_id) VALUES ('0', '0')");
-	$database->query("INSERT INTO ".TABLE_PREFIX."mod_team_settings (section_id,page_id) VALUES ('0', '0'");
-	
-	//______________________________________________
-
-
-	//Add folder for images to media dir
-	require_once(WB_PATH.'/framework/functions.php');
+	// Add folder for images to media dir
+	require_once(WB_PATH.'/framework/functions/function.make_dir.php');
 	make_dir(WB_PATH.MEDIA_DIRECTORY.'/team-members');
 	
 }
-
 ?>

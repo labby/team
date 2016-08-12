@@ -194,9 +194,12 @@ $query_team = $database->query("SELECT * FROM ".TABLE_PREFIX."mod_team_members W
 if($query_team->numRows() > 0) {
 	
 	//Group-Header
-	echo stripslashes($fetch_settings['theader']);
-	
-	if ($output != '') {$gname = $TMTEXT['NOGROUP'];} else {$gname == '';}
+	echo stripslashes($fetch_settings['theader']);	
+	if ($output != '') {
+		$gname = $TMTEXT['NOGROUP'];
+		} else  {
+			$gname = '';
+		}
 	$vars = array( '[GROUPNAME]', '[GROUPDESC]');
 	$values = array ($gname, '');
 	//output the set based upon $tloop template			

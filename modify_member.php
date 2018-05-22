@@ -96,7 +96,7 @@ $fetch_content = $query_content->fetchRow();
 			    echo "<option value=\"\">None selected</option>\n";
 			    while ($file=readdir($pic_dir)) {
 			      if ($file != "." && $file != "..") {
-			        if (ereg(".gif|.GIF|.jpg|.JPG|.png|.PNG|.jpeg|.JPEG",$file)) {
+			        if (preg_match(".gif|.GIF|.jpg|.JPG|.png|.PNG|.jpeg|.JPEG",$file)) {
 			          echo "<option value=\"".$file."\"";
 			          if($picfile == $file) { echo " Selected"; } 
 			          echo ">".$file."</option>\n"; 

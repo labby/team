@@ -33,22 +33,7 @@ $order = new order(TABLE_PREFIX.'mod_team_members', 'position', 'team_id', 'sect
 $position = $order->get_new($section_id);
 
 // Insert new row into database
-$fields = array(
-	'section_id' => $section_id,
-	'page_id'	=> $page_id,
-	'position'	=> $position,
-	'active'	=> 1,
-	'description'	=> '',
-	'm_extra1'		=> '',
-	'm_extra2'		=> '',
-	'm_searchstring' => ''
-);
-
-$database->build_and_execute(
-	"INSERT",
-	TABLE_PREFIX."mod_team_members",
-	$fields
-);
+$database->query("INSERT INTO ".TABLE_PREFIX."mod_team_members (section_id,page_id,position,active) VALUES ('$section_id','$page_id','$position','1')");
 
 // Get the id
 $team_id = $database->get_one("SELECT LAST_INSERT_ID()");

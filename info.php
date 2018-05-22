@@ -24,8 +24,8 @@
 $module_directory = 'team';
 $module_name = 'Team';
 $module_function = 'page';
-$module_version = '1.5.0';
-$module_platform = '2.x';
+$module_version = '1.6.0';
+$module_platform = '3.x';
 $module_author = 'Ryan Djurovich, Bennie Wijs, Woudloper, Matthias Gallas, Niclas Brorsson, Chio Maisriml, erpe';
 $module_license = 'GNU General Public License';
 $module_description = 'This page type is designed for making a team/members page. It is based on the bookmarks module';

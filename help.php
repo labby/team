@@ -25,21 +25,21 @@
 require('../../config.php');
 
 // Include WB admin wrapper script
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 // Load Language file
 if(LANGUAGE_LOADED) {
-    require_once(WB_PATH.'/modules/team/languages/EN.php');
-    if(file_exists(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
-        require_once(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
+    require_once(LEPTON_PATH.'/modules/team/languages/EN.php');
+    if(file_exists(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
+        require_once(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
     }
 }
 
 // Load correct help fil
 if(LANGUAGE_LOADED) {
-    $help = WB_PATH."/modules/team/languages/help-EN.php";
-    if(file_exists(WB_PATH.'/modules/team/languages/help-'.LANGUAGE.'.php')) {
-        $help = WB_PATH."/modules/team/languages/help-".LANGUAGE.".php";
+    $help = LEPTON_PATH."/modules/team/languages/help-EN.php";
+    if(file_exists(LEPTON_PATH.'/modules/team/languages/help-'.LANGUAGE.'.php')) {
+        $help = LEPTON_PATH."/modules/team/languages/help-".LANGUAGE.".php";
     }
 }
 

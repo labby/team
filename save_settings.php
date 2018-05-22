@@ -25,7 +25,7 @@ require('../../config.php');
 
 // Include WB admin wrapper script
 $update_when_modified = true; // Tells script to update when this page was last updated
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 // This code removes any php tags and adds slashes
 $header = addslashes(str_replace('?php', '', $_POST['header']));

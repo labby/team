@@ -39,10 +39,10 @@ if(!isset($_GET['team_id']) OR !is_numeric($_GET['team_id'])) {
 }
 
 // Include WB admin wrapper script
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 // Include the ordering class
-require(WB_PATH.'/framework/class.order.php');
+require(LEPTON_PATH.'/framework/class.order.php');
 
 // Create new order object an reorder
 $order = new order($table, 'position', $id_field, 'section_id');

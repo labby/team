@@ -24,13 +24,13 @@
 require('../../config.php');
 
 // Include WB admin wrapper script
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 // Load Language file
 if(LANGUAGE_LOADED) {
-    require_once(WB_PATH.'/modules/team/languages/EN.php');
-    if(file_exists(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
-        require_once(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
+    require_once(LEPTON_PATH.'/modules/team/languages/EN.php');
+    if(file_exists(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
+        require_once(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
     }
 }
 
@@ -41,7 +41,7 @@ $fetch_content = $query_content->fetchRow();
 ?>
 
 
-<form name="edit" action="<?php echo WB_URL; ?>/modules/team/save_settings.php" method="post" style="margin: 0;">
+<form name="edit" action="<?php echo LEPTON_URL; ?>/modules/team/save_settings.php" method="post" style="margin: 0;">
 
 	<input type="hidden" name="section_id" value="<?php echo $section_id; ?>">
 	<input type="hidden" name="page_id" value="<?php echo $page_id; ?>">

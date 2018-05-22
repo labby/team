@@ -24,10 +24,10 @@
 require('../../config.php');
 
 if(LANGUAGE_LOADED) {
-	if(!file_exists(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
-		require_once(WB_PATH.'/modules/team/languages/EN.php');
+	if(!file_exists(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
+		require_once(LEPTON_PATH.'/modules/team/languages/EN.php');
 	} else {
-		require_once(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
+		require_once(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
 	}
 }
 
@@ -39,7 +39,7 @@ if(!isset($_GET['group_id']) OR !is_numeric($_GET['group_id'])) {
 }
 
 // Include WB admin wrapper script
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 //Get module settings file
 require('module_settings.default.php');
@@ -51,7 +51,7 @@ $fetch_content = $query_content->fetchRow();
 
 ?>
 
-<form name="modify" action="<?php echo WB_URL; ?>/modules/team/save_group.php" method="post" style="margin: 0;">
+<form name="modify" action="<?php echo LEPTON_URL; ?>/modules/team/save_group.php" method="post" style="margin: 0;">
 
 <input type="hidden" name="section_id" value="<?php echo $section_id; ?>">
 <input type="hidden" name="page_id" value="<?php echo $page_id; ?>">

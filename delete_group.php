@@ -32,7 +32,7 @@ if(!isset($_GET['group_id']) OR !is_numeric($_GET['group_id'])) {
 
 // Include WB admin wrapper script
 $update_when_modified = true; // Tells script to update when this page was last updated
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 // Delete row
 $database->query("DELETE FROM ".TABLE_PREFIX."mod_team_groups WHERE group_id = '$group_id'");

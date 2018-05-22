@@ -21,7 +21,7 @@
 
 */
 
-if(defined('WB_URL')) {
+if(defined('LEPTON_URL')) {
 	
 	$database->query("DROP TABLE IF EXISTS `".TABLE_PREFIX."mod_team_members`");
 	$mod_team = 'CREATE TABLE `'.TABLE_PREFIX.'mod_team_members` ( '
@@ -110,8 +110,8 @@ if(defined('WB_URL')) {
 	$database->query("INSERT INTO ".TABLE_PREFIX."search (name,value,extra) VALUES ('query_end', '$query_end_code', 'team')");
 	
 	// Add folder for images to media dir
-	require_once(WB_PATH.'/framework/functions/function.make_dir.php');
-	make_dir(WB_PATH.MEDIA_DIRECTORY.'/team-members');
+	require_once(LEPTON_PATH.'/framework/functions/function.make_dir.php');
+	make_dir(LEPTON_PATH.MEDIA_DIRECTORY.'/team-members');
 	
 }
 ?>

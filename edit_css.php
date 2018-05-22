@@ -28,7 +28,7 @@
 
 // include configuration file and admin wrapper script
 require('../../config.php');
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 // include functions to edit the optional module CSS files (frontend.css, backend.css)
 require_once('css.functions.php');
@@ -92,7 +92,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'save' &&
 		// make sure that codepress stuff is only used if the framework is available
 		$CODEPRESS['CLASS'] = '';
 		$CODEPRESS['JS'] = '';
-		if(file_exists(WB_PATH .'/include/codepress/codepress.js')) {
+		if(file_exists(LEPTON_PATH .'/include/codepress/codepress.js')) {
 			$CODEPRESS['CLASS'] = 'class="codepress css" ';
 			$CODEPRESS['JS'] = 'onclick="javascript: css_codepress.value = area_codepress.getCode();"';
 		}

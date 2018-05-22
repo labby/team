@@ -22,9 +22,9 @@
 */
 
 // Must include code to stop this file being access directly
-if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
+if(defined('LEPTON_PATH') == false) { exit("Cannot access this file directly"); }
 
-$mpath = WB_PATH.'/modules/team/';
+$mpath = LEPTON_PATH.'/modules/team/';
 if (!file_exists($mpath.'module_settings.php')) { copy($mpath.'module_settings.default.php', $mpath.'module_settings.php') ; }
 if (!file_exists($mpath.'frontend.css')) { copy($mpath.'frontend.default.css', $mpath.'frontend.css') ; }
 if (!file_exists($mpath.'frontend.js')) { copy($mpath.'frontend.default.js', $mpath.'frontend.js') ; }

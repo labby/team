@@ -22,15 +22,15 @@
 */
 
 // Must include code to stop this file being access directly
-if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
+if(defined('LEPTON_PATH') == false) { exit("Cannot access this file directly"); }
 
 
 
 // Load Language file
 if(LANGUAGE_LOADED) {
-    require_once(WB_PATH.'/modules/team/languages/EN.php');
-    if(file_exists(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
-        require_once(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
+    require_once(LEPTON_PATH.'/modules/team/languages/EN.php');
+    if(file_exists(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
+        require_once(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
     }
 }
 
@@ -43,12 +43,12 @@ if (defined('MOD_FRONTEND_CSS_REGISTERED') AND (MOD_FRONTEND_CSS_REGISTERED == t
 	//OK - do nothing, do not include, if exist or not
 } else {	
 	//first, we can only include, if it exist:
-	if (file_exists(WB_PATH .'/modules/team/frontend.css')) {
+	if (file_exists(LEPTON_PATH .'/modules/team/frontend.css')) {
 		if ($use_frontend_css > 0) { //embed or link?
 			if ($use_frontend_css > 1) {  //embed				
-				echo "\n<style type=\"text/css\">\n<!--\n"; include (WB_PATH .'/modules/team/frontend.css'); echo "-->\n</style>\n";
+				echo "\n<style type=\"text/css\">\n<!--\n"; include (LEPTON_PATH .'/modules/team/frontend.css'); echo "-->\n</style>\n";
 			} else {  //link
-				echo "\n".'<link rel="stylesheet" type="text/css" href="'.WB_URL.'/modules/team/frontend.css" />'."\n"; 
+				echo "\n".'<link rel="stylesheet" type="text/css" href="'.LEPTON_URL.'/modules/team/frontend.css" />'."\n"; 
 			}	
 		}
 	
@@ -140,7 +140,7 @@ if($query_groups->numRows() > 0) {
 				$m_link = stripslashes($teammember['email']);
 				$email = "";
 				if ($m_link != '') { 
-					require_once(WB_PATH.'/modules/team/functions.inc.php');
+					require_once(LEPTON_PATH.'/modules/team/functions.inc.php');
 					$email = convert_team_link ($m_link, $hide_email);					
 					$email = "<$member_listtag class=\"team-mail\">$email</$member_listtag>\n";
 				}
@@ -155,9 +155,9 @@ if($query_groups->numRows() > 0) {
 				
 				$team_pic = $teammember['picture'];
 				if ($team_pic == '') { 
-					$team_pic = WB_URL. '/modules/team/nopic.gif'; 
+					$team_pic = LEPTON_URL. '/modules/team/nopic.gif'; 
 				} else {
-					$team_pic = WB_URL . $pic_loc . '/' . $team_pic;
+					$team_pic = LEPTON_URL . $pic_loc . '/' . $team_pic;
 				}
 				
 				
@@ -221,7 +221,7 @@ if($query_team->numRows() > 0) {
 				$m_link = stripslashes($teammember['email']);
 				$email = "";
 				if ($m_link != '') { 
-					require_once(WB_PATH.'/modules/team/functions.inc.php');
+					require_once(LEPTON_PATH.'/modules/team/functions.inc.php');
 					$email = convert_team_link ($m_link, $hide_email);					
 					$email = "<$member_listtag class=\"team-mail\">$email</$member_listtag>\n";
 				}
@@ -238,9 +238,9 @@ if($query_team->numRows() > 0) {
 				
 				$team_pic = $teammember['picture'];
 				if ($team_pic == '') { 
-					$team_pic = WB_URL. '/modules/team/nopic.gif'; 
+					$team_pic = LEPTON_URL. '/modules/team/nopic.gif'; 
 				} else {
-					$team_pic = WB_URL . $pic_loc . '/' . $team_pic;
+					$team_pic = LEPTON_URL . $pic_loc . '/' . $team_pic;
 				}
 				
 				

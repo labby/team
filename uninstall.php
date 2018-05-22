@@ -22,7 +22,7 @@
 */
 
 // Must include code to stop this file being access directly
-if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
+if(defined('LEPTON_PATH') == false) { exit("Cannot access this file directly"); }
 
 $database->query("DELETE FROM ".TABLE_PREFIX."search WHERE name = 'module' AND value = 'team'");
 $database->query("DELETE FROM ".TABLE_PREFIX."search WHERE extra = 'team'");
@@ -31,7 +31,7 @@ $database->query("DROP TABLE ".TABLE_PREFIX."mod_team_groups");
 $database->query("DROP TABLE ".TABLE_PREFIX."mod_team_settings");
 
 //Remove the team folder in the media dir
-//require_once(WB_PATH.'/framework/functions.php');
-//rm_full_dir(WB_PATH.MEDIA_DIRECTORY.'/team-members');
+//require_once(LEPTON_PATH.'/framework/functions.php');
+//rm_full_dir(LEPTON_PATH.MEDIA_DIRECTORY.'/team-members');
 
 ?>

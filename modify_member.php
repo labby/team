@@ -31,17 +31,17 @@ if(!isset($_GET['team_id']) OR !is_numeric($_GET['team_id'])) {
 }
 
 // Include WB admin wrapper script
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 require('module_settings.default.php');
 require('module_settings.php');
 
 // Load Language file
 if(LANGUAGE_LOADED) {
-	if(!file_exists(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
-		require_once(WB_PATH.'/modules/team/languages/EN.php');
+	if(!file_exists(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
+		require_once(LEPTON_PATH.'/modules/team/languages/EN.php');
 	} else {
-		require_once(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
+		require_once(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
 	}
 }
 
@@ -49,7 +49,7 @@ $query_content = $database->query("SELECT * FROM ".TABLE_PREFIX."mod_team_member
 $fetch_content = $query_content->fetchRow();
 
 ?>
-<form name="modify" action="<?php echo WB_URL; ?>/modules/team/save_member.php" method="post" style="margin: 0;">
+<form name="modify" action="<?php echo LEPTON_URL; ?>/modules/team/save_member.php" method="post" style="margin: 0;">
 	<input type="hidden" name="section_id" value="<?php echo $section_id; ?>">
 	<input type="hidden" name="page_id" value="<?php echo $page_id; ?>">
 	<input type="hidden" name="team_id" value="<?php echo $team_id; ?>">
@@ -86,23 +86,30 @@ $fetch_content = $query_content->fetchRow();
 			    $fetch_settings = $query_content->fetchRow();
 			    $pic_loc = $fetch_settings['pic_loc'];
 			  }
-			  if ($pic_loc == "") { $file_dir = "";} else { $file_dir= WB_PATH . $pic_loc; }
+			  if ($pic_loc == "") { $file_dir = "";} else { $file_dir= LEPTON_PATH . $pic_loc; }
 			  $picfile = $fetch_content['picture'];
-			  if ($picfile == "" OR $pic_loc == "") { $previewpic =  WB_URL . "/modules/team/nopic.gif"; } else { $previewpic =  WB_URL . $pic_loc.'/'.$picfile; }
-			  $check_pic_dir=is_dir("$file_dir");
-			  if ($check_pic_dir=='1') {
+			  if ($picfile == "" OR $pic_loc == "") { $previewpic =  LEPTON_URL . "/modules/team/nopic.gif"; } else { $previewpic =  LEPTON_URL . $pic_loc.'/'.$picfile; }
+			  $check_pic_dir=is_dir($file_dir);
+			  if ($check_pic_dir== true) {
 			    $pic_dir=opendir($file_dir);
 			    echo "<select style=\"width:150px;\" name=\"picture\" onChange=\"javascript:changepic()\">\n";
 			    echo "<option value=\"\">None selected</option>\n";
+				$all_images = array();
 			    while ($file=readdir($pic_dir)) {
 			      if ($file != "." && $file != "..") {
-			        if (preg_match(".gif|.GIF|.jpg|.JPG|.png|.PNG|.jpeg|.JPEG",$file)) {
-			          echo "<option value=\"".$file."\"";
-			          if($picfile == $file) { echo " Selected"; } 
-			          echo ">".$file."</option>\n"; 
+			        if (1 == preg_match("/.gif|.GIF|.jpg|.JPG|.png|.PNG|.jpeg|.JPEG/",$file)) {					
+						$all_images[] = $file;
 			        }
 			      }
 			    }
+				natsort($all_images);
+				foreach($all_images as $file){
+					echo "<option value=\"".$file."\"";
+			        if($picfile == $file) { 
+						echo " Selected"; 
+						} 
+			        echo ">".$file."</option>\n"; 
+				}
 			    echo "</select>\n";
 			  } else { Echo $TMTEXT['DIRECTORY'].$pic_loc.$TMTEXT['NOT_EXIST']; }
 			  
@@ -144,7 +151,7 @@ $fetch_content = $query_content->fetchRow();
 <script type="text/javascript">
 				function changepic() {
 				var bildname = document.modify.picture.options[document.modify.picture.selectedIndex].value;
-				document.images['memberpic'].src = "<?php echo WB_URL.$pic_loc.'/"' ?> + bildname;
+				document.images['memberpic'].src = "<?php echo LEPTON_URL.$pic_loc.'/"' ?> + bildname;
 		} 
 		</script> 
 		

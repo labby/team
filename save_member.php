@@ -33,11 +33,11 @@ if(!isset($_POST['team_id']) OR !is_numeric($_POST['team_id'])) {
 global $wb;
 // Include WB admin wrapper script
 $update_when_modified = true; // Tells script to update when this page was last updated
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 // Validate  fields
 if($admin->get_post('m_name') == '') {
-	$admin->print_error($MESSAGE['GENERIC']['FILL_IN_ALL'], WB_URL.'/modules/modify_member.php?page_id='.$page_id.'&section_id='.$section_id.'&team_id='.$team_id);
+	$admin->print_error($MESSAGE['GENERIC']['FILL_IN_ALL'], LEPTON_URL.'/modules/modify_member.php?page_id='.$page_id.'&section_id='.$section_id.'&team_id='.$team_id);
 } else {
 
 	$html_allowed = 0;
@@ -100,7 +100,7 @@ $database->query("UPDATE ".TABLE_PREFIX."mod_team_members SET "
 
 // Check if there is a db error, otherwise say successful
 if($database->is_error()) {
-	$admin->print_error($database->get_error(), WB_URL.'/modules/team/modify_member.php?page_id='.$page_id.'&section_id='.$section_id.'&team_id='.$team_id);
+	$admin->print_error($database->get_error(), LEPTON_URL.'/modules/team/modify_member.php?page_id='.$page_id.'&section_id='.$section_id.'&team_id='.$team_id);
 } else {
 	$admin->print_success($TEXT['SUCCESS'], ADMIN_URL.'/pages/modify.php?page_id='.$page_id);
 }

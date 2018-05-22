@@ -26,14 +26,14 @@
 **/
 
 // prevent this file from being accesses directly
-if(defined('WB_PATH') == false) {
+if(defined('LEPTON_PATH') == false) {
 	exit("Cannot access this file directly"); 
 }
 
 /**
 	DEFINE LANGUAGE DEPENDING OUTPUTS FOR THE EDIT CSS PART
 */
-$lang_dir = WB_PATH .'/modules/' .basename(dirname(__FILE__)) .'/languages/';
+$lang_dir = LEPTON_PATH .'/modules/' .basename(dirname(__FILE__)) .'/languages/';
 if(file_exists($lang_dir .LANGUAGE .'.php')) {
 	// try to include custom language file if exists
 	require_once($lang_dir .LANGUAGE .'.php');
@@ -53,7 +53,7 @@ if (!function_exists('mod_file_exists')) {
 	function mod_file_exists($mod_file='frontend.css') {
   	// extract the module directory
 		$mod_dir = basename(dirname(__FILE__)) .'/' .$mod_file;
-		return file_exists(WB_PATH .'/modules/' .$mod_dir);
+		return file_exists(LEPTON_PATH .'/modules/' .$mod_dir);
 	}
 }
 
@@ -70,7 +70,7 @@ if (!function_exists('css_edit')) {
 		if($frontend_css || $backend_css) {
 			 // display link to edit the optional CSS module files
 		  $file = $frontend_css ? 'frontend.css' : 'backend.css';
-			$output  = '<div class="mod_' .$mod_dir .'_edit_css"><a href="' .WB_URL .'/modules/' .$mod_dir .'/edit_css.php';
+			$output  = '<div class="mod_' .$mod_dir .'_edit_css"><a href="' .LEPTON_URL .'/modules/' .$mod_dir .'/edit_css.php';
 			$output .= '?page_id=' .$page_id .'&section_id=' .$section_id .'&edit_file=' .$file .'">';
 			$output .= $CAP_EDIT_CSS .'</a></div>';
       echo $output;
@@ -108,7 +108,7 @@ if (!function_exists('toggle_css_file')) {
 		$toggle_file = ($base_css_file == 'frontend.css') ? 'backend.css' : 'frontend.css';
 		if(mod_file_exists($toggle_file)) {
    		// display button to toggle between the two CSS files: frontend.css, backend.css
-			$output  = '<div class="mod_' .$mod_dir .'_edit_css"><a href="' .WB_URL .'/modules/' .$mod_dir .'/edit_css.php';
+			$output  = '<div class="mod_' .$mod_dir .'_edit_css"><a href="' .LEPTON_URL .'/modules/' .$mod_dir .'/edit_css.php';
 			$output .= '?page_id=' .$page_id .'&section_id=' .$section_id .'&edit_file=' .$toggle_file .'">';
 			$output .= $CAP_TOGGLE_CSS .$toggle_file .'</a></div>';
     	echo $output;

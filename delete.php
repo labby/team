@@ -2,7 +2,7 @@ ammember['m_extra2']);
 				
 				$team_pic = $teammember['picture'];
 				if ($team_pic == '') { $team_pic = 'nopic.jpg'; }
-				$team_pic = WB_URL . $pic_loc . '/' . $team_pic;
+				$team_pic = LEPTON_URL . $pic_loc . '/' . $team_pic;
 				
 				
 				

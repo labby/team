@@ -22,7 +22,7 @@
 */
 
 // Must include code to stop this file being access directly
-if(!defined('WB_PATH')) { exit("Cannot access this file directly"); }
+if(!defined('LEPTON_PATH')) { exit("Cannot access this file directly"); }
 
 // include functions to edit the optional module CSS files (frontend.css, backend.css)
 require_once('css.functions.php');
@@ -30,10 +30,10 @@ require_once('css.functions.php');
 
 // Load Language file
 if(LANGUAGE_LOADED) {
-	if(!file_exists(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
-		require_once(WB_PATH.'/modules/team/languages/EN.php');
+	if(!file_exists(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php')) {
+		require_once(LEPTON_PATH.'/modules/team/languages/EN.php');
 	} else {
-		require_once(WB_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
+		require_once(LEPTON_PATH.'/modules/team/languages/'.LANGUAGE.'.php');
 	}
 }
 
@@ -47,21 +47,21 @@ $sorting = $query_sort_grp_name->fetchRow();
 // $query_sort_nogrp_team = $database->query("SELECT sort_nogrp_team FROM ".TABLE_PREFIX."mod_team_settings WHERE section_id = '$section_id'");
 
 
-$picurl = WB_URL.'/modules/team/img/';
+$picurl = LEPTON_URL.'/modules/team/img/';
 ?>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 	<td align="left" width="25%">
-		<input type="button" value="<?php echo $TEXT['ADD'].' '.$TMTEXT['MEMBER']; ?>" onclick="javascript: window.location = '<?php echo WB_URL; ?>/modules/team/add_member.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>';" style="width: 100%;" />
+		<input type="button" value="<?php echo $TEXT['ADD'].' '.$TMTEXT['MEMBER']; ?>" onclick="javascript: window.location = '<?php echo LEPTON_URL; ?>/modules/team/add_member.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>';" style="width: 100%;" />
 	</td>
 	<td align="center" width="25%">
-		<input type="button" value="<?php echo $TEXT['ADD'].' '.$TEXT['GROUP']; ?>" onclick="javascript: window.location = '<?php echo WB_URL; ?>/modules/team/add_group.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>';" style="width: 100%;" />
+		<input type="button" value="<?php echo $TEXT['ADD'].' '.$TEXT['GROUP']; ?>" onclick="javascript: window.location = '<?php echo LEPTON_URL; ?>/modules/team/add_group.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>';" style="width: 100%;" />
 	</td>
 	<td align="right" width="25%">
-		<input type="button" value="<?php echo $TEXT['SETTINGS']; ?>" onclick="javascript: window.location = '<?php echo WB_URL; ?>/modules/team/modify_settings.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>';" style="width: 100%;" />
+		<input type="button" value="<?php echo $TEXT['SETTINGS']; ?>" onclick="javascript: window.location = '<?php echo LEPTON_URL; ?>/modules/team/modify_settings.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>';" style="width: 100%;" />
 	</td>
 	<td align="right" width="25%">
-		<input type="button" value="<?php echo $MENU['HELP']; ?>" onclick="javascript: window.location = '<?php echo WB_URL; ?>/modules/team/help.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>';" style="width: 100%;" />
+		<input type="button" value="<?php echo $MENU['HELP']; ?>" onclick="javascript: window.location = '<?php echo LEPTON_URL; ?>/modules/team/help.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>';" style="width: 100%;" />
 	</td>
 </tr>
 </table>
@@ -86,12 +86,12 @@ if ($countmax > 0) {
 		?>
 		<tr class="row_<?php echo $row; ?>" height="20">
 			<td width="20">
-				<a href="<?php echo WB_URL; ?>/modules/team/modify_member.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>">
+				<a href="<?php echo LEPTON_URL; ?>/modules/team/modify_member.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>">
 					<img src="<?php echo ADMIN_URL; ?>/images/modify_16.png" border="0" alt="Modify" />
 				</a>
 			</td>
 			<td>
-				<a href="<?php echo WB_URL; ?>/modules/team/modify_member.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>">
+				<a href="<?php echo LEPTON_URL; ?>/modules/team/modify_member.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>">
 					<?php echo stripslashes($teammember['m_name']); ?>
 				</a>
 			</td>
@@ -109,17 +109,17 @@ if ($countmax > 0) {
 			</td>			
 			<td width="30"><img src="<?php echo $picurl.'active'. $teammember['active']; ?>.gif" alt="" /></td>
 			<td width="20"><?php if ($count > 1) { ?>
-				<a href="<?php echo WB_URL; ?>/modules/team/move_up.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>" m_name="<?php echo $TEXT['MOVE_UP']; ?>">
+				<a href="<?php echo LEPTON_URL; ?>/modules/team/move_up.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>" m_name="<?php echo $TEXT['MOVE_UP']; ?>">
 					<img src="<?php echo ADMIN_URL; ?>/images/up_16.png" border="0" alt="^" />
 				</a><?php  } else {echo '&nbsp;';}  ?>
 			</td>
 			<td width="20"><?php if ($count < $countmax) { ?>
-				<a href="<?php echo WB_URL; ?>/modules/team/move_down.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>" m_name="<?php echo $TEXT['MOVE_DOWN']; ?>">
+				<a href="<?php echo LEPTON_URL; ?>/modules/team/move_down.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>" m_name="<?php echo $TEXT['MOVE_DOWN']; ?>">
 					<img src="<?php echo ADMIN_URL; ?>/images/down_16.png" border="0" alt="v" />
 				</a><?php  } else {echo '&nbsp;';}  ?>
 			</td>
 			<td width="20">
-				<a href="#" onclick="javascript: confirm_link('<?php echo $TEXT['ARE_YOU_SURE']; ?>', '<?php echo WB_URL; ?>/modules/team/delete_member.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>');" m_name="<?php echo $TEXT['DELETE']; ?>">
+				<a href="#" onclick="javascript: confirm_link('<?php echo $TEXT['ARE_YOU_SURE']; ?>', '<?php echo LEPTON_URL; ?>/modules/team/delete_member.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&team_id=<?php echo $teammember['team_id']; ?>');" m_name="<?php echo $TEXT['DELETE']; ?>">
 					<img src="<?php echo ADMIN_URL; ?>/images/delete_16.png" border="0" alt="<?php echo $TEXT['DELETE']; ?>" />
 				</a>
 			</td>
@@ -163,12 +163,12 @@ if ($countmax > 0) {
 		?>
 		<tr class="row_<?php echo $row; ?>" height="20">
 			<td width="20">
-				<a href="<?php echo WB_URL; ?>/modules/team/modify_group.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>">
+				<a href="<?php echo LEPTON_URL; ?>/modules/team/modify_group.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>">
 					<img src="<?php echo ADMIN_URL; ?>/images/modify_16.png" border="0" alt="Modify - " />
 				</a>
 			</td>
 			<td>
-				<a href="<?php echo WB_URL; ?>/modules/team/modify_group.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>">
+				<a href="<?php echo LEPTON_URL; ?>/modules/team/modify_group.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>">
 					<?php echo stripslashes($group['group_name']) ; ?>
 				</a>
 			</td>
@@ -180,17 +180,17 @@ if ($countmax > 0) {
 			</td-->
 			<td width="30"><img src="<?php echo $picurl.'active'. $group['active']; ?>.gif" alt="" /></td>
 			<td width="20"><?php if ($count > 1) { ?>
-				<a href="<?php echo WB_URL; ?>/modules/team/move_up.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>" m_name="<?php echo $TEXT['MOVE_UP']; ?>">
+				<a href="<?php echo LEPTON_URL; ?>/modules/team/move_up.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>" m_name="<?php echo $TEXT['MOVE_UP']; ?>">
 					<img src="<?php echo ADMIN_URL; ?>/images/up_16.png" border="0" alt="^" />
 				</a><?php  } else {echo '&nbsp;';}  ?>
 			</td>
 			<td width="20"><?php if ($count < $countmax) { ?>
-				<a href="<?php echo WB_URL; ?>/modules/team/move_down.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>" m_name="<?php echo $TEXT['MOVE_DOWN']; ?>">
+				<a href="<?php echo LEPTON_URL; ?>/modules/team/move_down.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>" m_name="<?php echo $TEXT['MOVE_DOWN']; ?>">
 					<img src="<?php echo ADMIN_URL; ?>/images/down_16.png" border="0" alt="v" />
 				</a><?php  } else {echo '&nbsp;';}  ?>
 			</td>
 			<td width="20">
-				<a href="#" onclick="javascript: confirm_link('<?php echo $TEXT['ARE_YOU_SURE']; ?>', '<?php echo WB_URL; ?>/modules/team/delete_group.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>');" m_name="<?php echo $TEXT['DELETE']; ?>">
+				<a href="#" onclick="javascript: confirm_link('<?php echo $TEXT['ARE_YOU_SURE']; ?>', '<?php echo LEPTON_URL; ?>/modules/team/delete_group.php?page_id=<?php echo $page_id; ?>&section_id=<?php echo $section_id; ?>&group_id=<?php echo $group['group_id']; ?>');" m_name="<?php echo $TEXT['DELETE']; ?>">
 					<img src="<?php echo ADMIN_URL; ?>/images/delete_16.png" border="0" alt="X" />
 				</a>
 			</td>

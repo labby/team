@@ -32,13 +32,13 @@ if(!isset($_POST['group_id']) OR !is_numeric($_POST['group_id'])) {
 
 // Include WB admin wrapper script
 $update_when_modified = true; // Tells script to update when this page was last updated
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 
 
 // Vagroup_idate all fields
 if($admin->get_post('group_name') == '') {
-	$admin->print_error($MESSAGE['GENERIC']['FILL_IN_ALL'], WB_URL.'/modules/team/modify_group.php?page_id='.$page_id.'&section_id='.$section_id.'&group_id='.$group_id);
+	$admin->print_error($MESSAGE['GENERIC']['FILL_IN_ALL'], LEPTON_URL.'/modules/team/modify_group.php?page_id='.$page_id.'&section_id='.$section_id.'&group_id='.$group_id);
 } else {
 	$html_allowed = 0;
 	require('module_settings.default.php');
@@ -65,7 +65,7 @@ $database->query("UPDATE ".TABLE_PREFIX."mod_team_groups SET group_name = '$grou
 
 // Check if there is a db error, otherwise say successful
 if($database->is_error()) {
-	$admin->print_error($database->get_error(), WB_URL.'/modules/team/modify_group.php?page_id='.$page_id.'&section_id='.$section_id.'&group_id='.$group_id);
+	$admin->print_error($database->get_error(), LEPTON_URL.'/modules/team/modify_group.php?page_id='.$page_id.'&section_id='.$section_id.'&group_id='.$group_id);
 } else {
 	$admin->print_success($TEXT['SUCCESS'], ADMIN_URL.'/pages/modify.php?page_id='.$page_id);
 }

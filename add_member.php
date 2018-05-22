@@ -24,10 +24,10 @@
 require('../../config.php');
 
 // Include WB admin wrapper script
-require(WB_PATH.'/modules/admin.php');
+require(LEPTON_PATH.'/modules/admin.php');
 
 // Include the ordering class
-require(WB_PATH.'/framework/class.order.php');
+require(LEPTON_PATH.'/framework/class.order.php');
 // Get new order
 $order = new order(TABLE_PREFIX.'mod_team_members', 'position', 'team_id', 'section_id');
 $position = $order->get_new($section_id);
@@ -55,9 +55,9 @@ $team_id = $database->get_one("SELECT LAST_INSERT_ID()");
 
 // Say that a new record has been added, then redirect to modify page
 if($database->is_error()) {
-	$admin->print_error($database->get_error(), WB_URL.'/modules/team/modify_member.php?page_id='.$page_id.'&section_id='.$section_id.'&team_id='.$team_id);
+	$admin->print_error($database->get_error(), LEPTON_URL.'/modules/team/modify_member.php?page_id='.$page_id.'&section_id='.$section_id.'&team_id='.$team_id);
 } else {
-	$admin->print_success($TEXT['SUCCESS'], WB_URL.'/modules/team/modify_member.php?page_id='.$page_id.'&section_id='.$section_id.'&team_id='.$team_id);
+	$admin->print_success($TEXT['SUCCESS'], LEPTON_URL.'/modules/team/modify_member.php?page_id='.$page_id.'&section_id='.$section_id.'&team_id='.$team_id);
 }
 
 // Print admin footer

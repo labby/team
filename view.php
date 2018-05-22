@@ -189,7 +189,6 @@ if ($sort_nogrp_team == "1") {
 	$sort_nogrp = "position";
 }
 
-
 $query_team = $database->query("SELECT * FROM ".TABLE_PREFIX."mod_team_members WHERE section_id = '$section_id' AND group_id = '0' AND active = '1' ORDER BY $sort_nogrp ASC");
 
 if($query_team->numRows() > 0) {
@@ -198,9 +197,9 @@ if($query_team->numRows() > 0) {
 	echo stripslashes($fetch_settings['theader']);	
 	if ($output != '') {
 		$gname = $TMTEXT['NOGROUP'];
-		} else 
-		{$gname = '';
-	}
+		} else  {
+			$gname = '';
+		}
 	$vars = array( '[GROUPNAME]', '[GROUPDESC]');
 	$values = array ($gname, '');
 	//output the set based upon $tloop template			
